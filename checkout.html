@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — Shopy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">Shop<span>y</span></a>
+
+      <button class="nav-toggle" data-nav-toggle aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav id="primary-nav" class="nav-menu" data-nav-menu aria-label="Primary">
+        <a class="nav-menu__link" href="index.html">Home</a>
+        <a class="nav-menu__link" href="index.html#shop">Shop</a>
+        <a class="cart-link" href="cart.html">
+          Cart
+          <span class="cart-badge" data-cart-badge hidden>0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <h1>Checkout</h1>
+        </div>
+
+        <div class="checkout-layout">
+          <form id="checkout-form" class="checkout-form" novalidate>
+            <div class="demo-notice">
+              <span aria-hidden="true">ⓘ</span>
+              <span>Demo checkout — no real payment will be processed. Card details are never saved.</span>
+            </div>
+
+            <fieldset>
+              <legend>Customer Information</legend>
+
+              <div class="form-field">
+                <label for="fullName">Full name</label>
+                <input type="text" id="fullName" name="fullName" autocomplete="name" data-error-for="fullName" aria-describedby="fullName-error" />
+                <span class="field-error" id="fullName-error" data-error-for="fullName"></span>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" autocomplete="email" />
+                  <span class="field-error" data-error-for="email"></span>
+                </div>
+                <div class="form-field">
+                  <label for="phone">Phone</label>
+                  <input type="tel" id="phone" name="phone" autocomplete="tel" />
+                  <span class="field-error" data-error-for="phone"></span>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Shipping Information</legend>
+
+              <div class="form-field">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" autocomplete="street-address" />
+                <span class="field-error" data-error-for="address"></span>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="city">City</label>
+                  <input type="text" id="city" name="city" autocomplete="address-level2" />
+                  <span class="field-error" data-error-for="city"></span>
+                </div>
+                <div class="form-field">
+                  <label for="country">Country</label>
+                  <input type="text" id="country" name="country" autocomplete="country-name" />
+                  <span class="field-error" data-error-for="country"></span>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Payment Information</legend>
+
+              <div class="form-field">
+                <label for="cardNumber">Card number</label>
+                <input type="text" id="cardNumber" name="cardNumber" inputmode="numeric" placeholder="1234 5678 9012 3456" autocomplete="cc-number" />
+                <span class="field-error" data-error-for="cardNumber"></span>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="expiry">Expiry (MM/YY)</label>
+                  <input type="text" id="expiry" name="expiry" placeholder="MM/YY" inputmode="numeric" autocomplete="cc-exp" />
+                  <span class="field-error" data-error-for="expiry"></span>
+                </div>
+                <div class="form-field">
+                  <label for="cvv">CVV</label>
+                  <input type="text" id="cvv" name="cvv" inputmode="numeric" placeholder="123" autocomplete="cc-csc" maxlength="4" />
+                  <span class="field-error" data-error-for="cvv"></span>
+                </div>
+              </div>
+            </fieldset>
+
+            <button type="submit" class="btn btn--primary btn--large">Place Order</button>
+          </form>
+
+          <aside class="checkout-summary" aria-label="Order summary">
+            <h2>Order Summary</h2>
+            <ul class="checkout-summary__list" id="checkout-summary-list"></ul>
+            <div class="summary-row"><span>Subtotal</span><span id="checkout-subtotal">$0.00</span></div>
+            <div class="summary-row"><span>Shipping</span><span id="checkout-shipping">$0.00</span></div>
+            <div class="summary-row summary-row--total"><span>Total</span><span id="checkout-total">$0.00</span></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <span>&copy; <span id="current-year"></span> Shopy. A frontend capstone project.</span>
+      <nav aria-label="Footer">
+        <a href="index.html">Home</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopy — Shop smarter. Live better.</title>
+  <meta name="description" content="Shopy is a modern storefront for electronics, fashion, home, and accessories." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">Shop<span>y</span></a>
+
+      <button class="nav-toggle" data-nav-toggle aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav id="primary-nav" class="nav-menu" data-nav-menu aria-label="Primary">
+        <a class="nav-menu__link" href="index.html" aria-current="page">Home</a>
+        <a class="nav-menu__link" href="index.html#shop">Shop</a>
+        <a class="cart-link" href="cart.html">
+          Cart
+          <span class="cart-badge" data-cart-badge hidden>0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero">
+      <div class="container hero__inner">
+        <p class="hero__eyebrow">New arrivals, every category</p>
+        <h1>Shop smarter. Live better.</h1>
+        <p>Thoughtfully chosen electronics, fashion, home goods, and accessories — with clear pricing and no clutter to wade through.</p>
+        <button class="btn btn--primary" id="hero-cta">Shop Now</button>
+      </div>
+    </section>
+
+    <section class="section" id="shop">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Full catalog</h2>
+          <span class="results-count" id="results-count">12 products</span>
+        </div>
+
+        <div class="catalog-controls">
+          <div class="search-field">
+            <label for="search-input" class="visually-hidden">Search products</label>
+            <input type="search" id="search-input" placeholder="Search by name, category, or description" autocomplete="off" />
+            <button type="button" class="search-field__clear" id="clear-search" aria-label="Clear search" hidden>&times;</button>
+          </div>
+
+          <div class="category-filters" role="group" aria-label="Filter by category">
+            <button type="button" class="category-btn is-active" data-category="All">All</button>
+            <button type="button" class="category-btn" data-category="Electronics">Electronics</button>
+            <button type="button" class="category-btn" data-category="Fashion">Fashion</button>
+            <button type="button" class="category-btn" data-category="Home">Home</button>
+            <button type="button" class="category-btn" data-category="Accessories">Accessories</button>
+          </div>
+
+          <div class="sort-field">
+            <label for="sort-select" class="visually-hidden">Sort products</label>
+            <select id="sort-select">
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="name-asc">Name: A to Z</option>
+              <option value="name-desc">Name: Z to A</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="product-grid" id="product-grid"></div>
+
+        <div class="empty-state" id="empty-state" hidden>
+          <h2>No products found.</h2>
+          <p>Try another search term or clear your filters.</p>
+          <button type="button" class="btn btn--secondary" id="reset-filters">Reset filters</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <span>&copy; <span id="current-year"></span> Shopy. A frontend capstone project.</span>
+      <nav aria-label="Footer">
+        <a href="index.html">Home</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

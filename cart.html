@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart — Shopy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">Shop<span>y</span></a>
+
+      <button class="nav-toggle" data-nav-toggle aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav id="primary-nav" class="nav-menu" data-nav-menu aria-label="Primary">
+        <a class="nav-menu__link" href="index.html">Home</a>
+        <a class="nav-menu__link" href="index.html#shop">Shop</a>
+        <a class="cart-link" href="cart.html">
+          Cart
+          <span class="cart-badge" data-cart-badge hidden>0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="section" id="cart-page">
+      <div class="container">
+        <div class="section-heading">
+          <h1>Your Cart</h1>
+        </div>
+
+        <div class="empty-state" id="cart-empty" hidden>
+          <h2>Your cart is empty.</h2>
+          <p>Discover something you'll love.</p>
+          <a class="btn btn--primary" href="index.html">Continue Shopping</a>
+        </div>
+
+        <div class="cart-layout">
+          <div>
+            <div class="cart-items" id="cart-items"></div>
+            <button type="button" class="link-btn" id="clear-cart-btn" style="margin-top: 16px;" hidden>Clear cart</button>
+          </div>
+
+          <aside class="cart-summary" id="cart-summary" aria-label="Order summary" hidden>
+            <h2>Order Summary</h2>
+            <div class="summary-row"><span>Subtotal</span><span id="cart-subtotal">$0.00</span></div>
+            <div class="summary-row"><span>Shipping</span><span id="cart-shipping">$0.00</span></div>
+            <p class="shipping-note">Orders of $100 or more ship free. Otherwise, shipping is a flat $8.</p>
+            <div class="summary-row summary-row--total"><span>Total</span><span id="cart-total">$0.00</span></div>
+            <a class="btn btn--primary btn--large" href="checkout.html">Proceed to Checkout</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <span>&copy; <span id="current-year"></span> Shopy. A frontend capstone project.</span>
+      <nav aria-label="Footer">
+        <a href="index.html">Home</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
